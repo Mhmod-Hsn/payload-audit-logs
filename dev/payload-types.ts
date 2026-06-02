@@ -153,6 +153,22 @@ export interface User {
 export interface Post {
   id: number;
   title?: string | null;
+  excerpt?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -180,7 +196,7 @@ export interface Media {
  */
 export interface AuditLog {
   id: number;
-  collection: string;
+  entity: string;
   documentId: string;
   operation: 'create' | 'read' | 'update' | 'delete';
   user?: (number | null) | User;
@@ -315,6 +331,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  excerpt?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -340,7 +358,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "audit-logs_select".
  */
 export interface AuditLogsSelect<T extends boolean = true> {
-  collection?: T;
+  entity?: T;
   documentId?: T;
   operation?: T;
   user?: T;

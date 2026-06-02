@@ -46,6 +46,15 @@ export const getAuditLogsCollection = (userCollection: string = 'users'): Collec
       required: false,
     },
     {
+      name: 'diffViewer',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: 'payload-audit-logs/client#DiffViewer',
+        },
+      },
+    },
+    {
       name: 'originalData',
       type: 'json',
       admin: {

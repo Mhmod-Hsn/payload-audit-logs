@@ -1,0 +1,267 @@
+.diff-viewer-container {
+  margin: 1.5rem 0;
+  border: 1px solid var(--theme-border-color, #d0d7de);
+  border-radius: 6px;
+  background-color: var(--theme-bg-card, #ffffff);
+  overflow: hidden;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+}
+
+.diff-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--theme-bg-header, #f6f8fa);
+  border-bottom: 1px solid var(--theme-border-color, #d0d7de);
+}
+
+.diff-viewer-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--theme-text, #24292f);
+}
+
+.diff-viewer-toggle-btn {
+  background-color: var(--theme-bg-card, #ffffff);
+  border: 1px solid var(--theme-border-color, #d0d7de);
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--theme-text, #24292f);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  transition: background-color 0.2s ease;
+}
+
+.diff-viewer-toggle-btn:hover {
+  background-color: var(--theme-bg-hover, #f3f4f6);
+}
+
+.diff-viewer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.diff-item {
+  border-bottom: 1px solid var(--theme-border-color, #d0d7de);
+}
+
+.diff-item:last-child {
+  border-bottom: none;
+}
+
+.diff-item-path {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--theme-bg-header, #f6f8fa);
+  border-bottom: 1px solid var(--theme-border-color, #d0d7de);
+}
+
+.diff-item-path code {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme-text, #24292f);
+}
+
+.diff-item-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.diff-item-badge-added {
+  background-color: #dafbe1;
+  color: #1a7f37;
+}
+
+.diff-item-badge-removed {
+  background-color: #ffebe9;
+  color: #cf222e;
+}
+
+.diff-item-badge-modified {
+  background-color: #ddf4ff;
+  color: #0969da;
+}
+
+.diff-item-badge-unchanged {
+  background-color: #eaeef2;
+  color: #57606a;
+}
+
+.diff-item-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.diff-line {
+  display: flex;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.diff-line-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  min-width: 2rem;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.diff-line-content {
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  flex-grow: 1;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: auto;
+}
+
+.diff-line-content code {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* GitHub Style Highlight Colors */
+.diff-line-removed {
+  background-color: #ffe3e3;
+  color: #990000;
+}
+.diff-line-removed .diff-line-marker {
+  color: #b30000;
+  background-color: #ffcaca;
+}
+
+.diff-line-added {
+  background-color: #d4f7dc;
+  color: #006600;
+}
+.diff-line-added .diff-line-marker {
+  color: #008000;
+  background-color: #bbf3c9;
+}
+
+.diff-line-unchanged {
+  color: var(--theme-text, #24292f);
+}
+.diff-line-unchanged .diff-line-marker {
+  color: var(--theme-text-muted, #57606a);
+  background-color: transparent;
+}
+
+.diff-viewer-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--theme-text-muted, #57606a);
+  background-color: var(--theme-bg-card, #ffffff);
+  border: 1px dashed var(--theme-border-color, #d0d7de);
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+/* Dark Mode Theme Support */
+[data-theme="dark"] .diff-viewer-container,
+.dark .diff-viewer-container {
+  border-color: #30363d;
+  background-color: #0d1117;
+}
+[data-theme="dark"] .diff-viewer-header,
+.dark .diff-viewer-header {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+[data-theme="dark"] .diff-viewer-title,
+.dark .diff-viewer-title {
+  color: #c9d1d9;
+}
+[data-theme="dark"] .diff-viewer-toggle-btn,
+.dark .diff-viewer-toggle-btn {
+  background-color: #21262d;
+  border-color: #30363d;
+  color: #c9d1d9;
+}
+[data-theme="dark"] .diff-viewer-toggle-btn:hover,
+.dark .diff-viewer-toggle-btn:hover {
+  background-color: #30363d;
+}
+[data-theme="dark"] .diff-item,
+.dark .diff-item {
+  border-color: #30363d;
+}
+[data-theme="dark"] .diff-item-path,
+.dark .diff-item-path {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+[data-theme="dark"] .diff-item-path code,
+.dark .diff-item-path code {
+  color: #c9d1d9;
+}
+[data-theme="dark"] .diff-item-badge-added,
+.dark .diff-item-badge-added {
+  background-color: rgba(46, 160, 67, 0.4);
+  color: rgba(46, 160, 67, 0.9); /* light blue or bright green */
+  border: 1px solid rgba(46, 160, 67, 0.9);
+}
+[data-theme="dark"] .diff-item-badge-removed,
+.dark .diff-item-badge-removed {
+  background-color: rgba(248, 81, 73, 0.75);
+  color: rgba(104, 31, 27, 0.9);
+  border: 1px solid rgba(248, 81, 73, 0.75);
+}
+[data-theme="dark"] .diff-item-badge-modified,
+.dark .diff-item-badge-modified {
+  background-color: rgba(56, 139, 253, 0.4);
+  color: #58a6ff;
+  border: 1px solid rgba(56, 139, 253, 0.4);
+}
+[data-theme="dark"] .diff-item-badge-unchanged,
+.dark .diff-item-badge-unchanged {
+  background-color: #21262d;
+  color: #8b949e;
+  border: 1px solid #30363d;
+}
+[data-theme="dark"] .diff-line-removed,
+.dark .diff-line-removed {
+  background-color: rgba(248, 81, 73, 0.75);
+  color: rgba(255, 220, 218, 0.9);
+}
+[data-theme="dark"] .diff-line-removed .diff-line-marker,
+.dark .diff-line-removed .diff-line-marker {
+  color: #fff2f2;
+  background-color: rgba(248, 81, 73, 0.75);
+}
+[data-theme="dark"] .diff-line-added,
+.dark .diff-line-added {
+  background-color: rgba(46, 160, 67, 0.75);
+  color: rgba(188, 247, 199, 0.9);
+}
+[data-theme="dark"] .diff-line-added .diff-line-marker,
+.dark .diff-line-added .diff-line-marker {
+  color: #e1ffe5;
+  background-color: rgba(46, 160, 67, 0.75);
+}
+[data-theme="dark"] .diff-line-unchanged,
+.dark .diff-line-unchanged {
+  color: #e1e4e8;
+}
+[data-theme="dark"] .diff-line-unchanged .diff-line-marker,
+.dark .diff-line-unchanged .diff-line-marker {
+  color: #8b949e;
+  background-color: #161b22;
+}
