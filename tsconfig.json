@@ -17,6 +17,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "declaration": true,
     "emitDeclarationOnly": true,
     "target": "ES2022",
     "composite": true,
