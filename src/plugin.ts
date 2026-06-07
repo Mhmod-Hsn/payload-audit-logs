@@ -1,4 +1,4 @@
-import type { Config } from 'payload';
+import type { Config, Plugin } from 'payload';
 
 import type { AuditLogConfig } from './types';
 
@@ -10,7 +10,7 @@ import {
 } from './hooks/auditLogHook';
 
 export const auditLogPlugin =
-  (pluginOptions: AuditLogConfig) =>
+  (pluginOptions: AuditLogConfig): Plugin =>
   (config: Config): Config => {
     if (pluginOptions.disabled) {
       return config
