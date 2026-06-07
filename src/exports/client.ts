@@ -1,1 +1,2 @@
-export { DiffViewer } from '../components/DiffViewer.js'
+export { DiffViewer } from '../components/DiffViewer';
+

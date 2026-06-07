@@ -1,13 +1,13 @@
 import type { Config } from 'payload';
 
-import type { AuditLogConfig } from './types.js';
+import type { AuditLogConfig } from './types';
 
-import { getAuditLogsCollection } from './collections/AuditLogs.js';
+import { getAuditLogsCollection } from './collections/AuditLogs';
 import {
   createAfterChangeHook,
   createAfterDeleteHook,
   createAfterReadHook
-} from './hooks/auditLogHook.js';
+} from './hooks/auditLogHook';
 
 export const auditLogPlugin =
   (pluginOptions: AuditLogConfig) =>

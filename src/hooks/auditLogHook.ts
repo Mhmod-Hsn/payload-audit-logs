@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import type {
-    CollectionAfterChangeHook,
-    CollectionAfterDeleteHook,
-    CollectionAfterReadHook
+  CollectionAfterChangeHook,
+  CollectionAfterDeleteHook,
+  CollectionAfterReadHook
 } from 'payload';
 
 export const createAfterChangeHook = (): CollectionAfterChangeHook => 
@@ -20,6 +19,7 @@ export const createAfterChangeHook = (): CollectionAfterChangeHook =>
           originalData: operation === 'update' ? previousDoc : null,
           user: user?.id || null,
         },
+        req,
       })
     } catch (err) {
       payload.logger.error(`Error creating audit log for ${operation} on ${collection.slug}: ${err}`)
@@ -42,6 +42,7 @@ export const createAfterDeleteHook = (): CollectionAfterDeleteHook =>
           originalData: doc,
           user: user?.id || null,
         },
+        req,
       })
     } catch (err) {
       payload.logger.error(`Error creating audit log for delete on ${collection.slug}: ${err}`)
@@ -67,6 +68,7 @@ export const createAfterReadHook = (): CollectionAfterReadHook =>
           operation: 'read',
           user: user?.id || null,
         },
+        req,
       })
     } catch (err) {
       payload.logger.error(`Error creating audit log for read on ${collection.slug}: ${err}`)

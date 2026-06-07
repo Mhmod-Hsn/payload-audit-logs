@@ -8,8 +8,8 @@ import { auditLogPlugin } from 'payload-audit-logs';
 import sharp from 'sharp';
 import { fileURLToPath } from 'url';
 
-import { testEmailAdapter } from './helpers/testEmailAdapter.js';
-import { seed } from './seed.js';
+import { testEmailAdapter } from './helpers/testEmailAdapter';
+import { seed } from './seed';
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
