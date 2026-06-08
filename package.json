@@ -1,6 +1,6 @@
 {
   "name": "payload-audit-logs",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Audit log plugin for Payload CMS",
   "license": "MIT",
   "homepage": "https://github.com/Mhmod-Hsn/payload-audit-logs#readme",

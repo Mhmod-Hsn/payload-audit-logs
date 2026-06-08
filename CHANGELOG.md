@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0]
+
+### Added
+- Added `auditLogsAccess` to `AuditLogConfig` to allow developers to define custom access control functions for the generated `AuditLogs` collection.
+- Added `hideAuditLogs` to `AuditLogConfig` to optionally hide the `AuditLogs` collection from the Payload Admin panel sidebar navigation.
+
 ## [1.1.0] - 2026-06-03
 
 ### Added

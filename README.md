@@ -58,6 +58,8 @@ The plugin accepts the following options:
 | `collections` | `Record<string, { operations: string[] }>` | `{}` | A map of collection slugs to track and the operations to log for each. |
 | `disabled` | `boolean` | `false` | If `true`, the plugin will be disabled. |
 | `userCollection` | `string` | `'users'` | The slug of the collection used for users. |
+| `auditLogsAccess` | `CollectionConfig['access']` | `{ ... }` | Access control functions for the generated Audit Logs collection. |
+| `hideAuditLogs` | `boolean \| ((args: { user: PayloadRequest['user'] \| null }) => boolean)` | `false` | Hide the Audit Logs collection from the sidebar navigation. |
 
 ### Operations
 
@@ -116,6 +118,8 @@ When the plugin is enabled, it automatically adds an `Audit Logs` collection to 
 By default:
 - **Create/Update/Delete**: Restricted (only the plugin can create logs).
 - **Read**: Any authenticated user can view audit logs.
+
+You can fully customize these rules by providing the `auditLogsAccess` property in your plugin configuration.
 
 ## Development
 

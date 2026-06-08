@@ -1,18 +1,24 @@
 import type { CollectionConfig } from 'payload';
 
-export const getAuditLogsCollection = (userCollection: string = 'users'): CollectionConfig => ({
-  slug: 'audit-logs',
-  access: {
-    create: () => false,
-    delete: () => false,
-    read: ({ req: { user } }) => !!user,
-    update: () => false,
-  },
-  admin: {
-    defaultColumns: ['entity', 'operation', 'user', 'createdAt'],
-    group: 'Admin',
-    useAsTitle: 'entity',
-  },
+import type { AuditLogConfig } from '../types';
+
+export const getAuditLogsCollection = (options: AuditLogConfig): CollectionConfig => {
+  const userCollection = options.userCollection || 'users';
+
+  return {
+    slug: 'audit-logs',
+    access: options.auditLogsAccess || {
+      create: () => false,
+      delete: () => false,
+      read: ({ req: { user } }) => !!user,
+      update: () => false,
+    },
+    admin: {
+      defaultColumns: ['entity', 'operation', 'user', 'createdAt'],
+      group: 'Admin',
+      hidden: options.hideAuditLogs ?? false,
+      useAsTitle: 'entity',
+    },
   fields: [
     {
       name: 'entity',
@@ -70,4 +76,5 @@ export const getAuditLogsCollection = (userCollection: string = 'users'): Collec
     },
   ],
   timestamps: true,
-})
+  }
+}

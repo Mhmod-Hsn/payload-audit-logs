@@ -16,7 +16,6 @@ export const auditLogPlugin =
       return config
     }
 
-    const userCollection = pluginOptions.userCollection || 'users'
 
     // Add AuditLogs collection
     if (!config.collections) {
@@ -26,7 +25,7 @@ export const auditLogPlugin =
     // Check if audit-logs already exists to avoid duplicates
     const auditLogsExists = config.collections.some(c => c.slug === 'audit-logs')
     if (!auditLogsExists) {
-      config.collections.push(getAuditLogsCollection(userCollection))
+      config.collections.push(getAuditLogsCollection(pluginOptions))
     }
 
     // Apply hooks to configured collections
